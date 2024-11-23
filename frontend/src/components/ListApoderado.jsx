@@ -202,11 +202,15 @@ const ListApoderado = ({ apoderado, isVisible, onClick }) => {
               </div>
             </div>
             <div>
-              {[est].length >= 1 ? (
+              {[est].length > 0 ? (
                 est.map((estudiante) => {
+                  console.log(estudiante.nombre_completo);
+
                   const inscripcionActiva = estudiante.inscripciones.filter(
                     (inscripcion) => inscripcion.activa === true
                   );
+                  console.log(inscripcionActiva);
+
                   return (
                     <li
                       key={estudiante.pk}
@@ -270,7 +274,7 @@ const ListApoderado = ({ apoderado, isVisible, onClick }) => {
                   <th>Estado</th>
                 </thead>
                 <tbody className="inscripciones-table">
-                  {inscripciones.length > 1 ? (
+                  {inscripciones.length > 0 ? (
                     inscripciones.map((inscripcion) => {
                       return (
                         <tr className="inscripcion">
